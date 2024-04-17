@@ -1,9 +1,5 @@
-import { getFrameMetadata } from '@coinbase/onchainkit';
+import Image from 'next/image';
 import { IMAGE_NAME } from '../utils/utils';
-
-const frameMetadata = getFrameMetadata({
-  buttons: [{ label: 'Buy', action: 'post_redirect' }],
-});
 
 export const metadata = {
   title: 'title',
@@ -13,15 +9,18 @@ export const metadata = {
   //   description: ITEM_DESCRIPTION,
   //   images: [NEXT_PUBLIC_URL],
   // },
-  other: {
-    ...frameMetadata,
-  },
 };
 
 export default function Page() {
   return (
     <>
-      <img src={`/${IMAGE_NAME}`} />
+      <h1>hi</h1>
+      <Image
+        src={`/${IMAGE_NAME}`}
+        width={500}
+        height={500}
+        alt='Picture of the author'
+      />
     </>
   );
 }
