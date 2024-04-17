@@ -1,25 +1,18 @@
 import { getFrameMetadata } from '@coinbase/onchainkit';
-import {
-  NEXT_PUBLIC_URL,
-  IMAGE_NAME,
-  ITEM_DESCRIPTION,
-  ITEM_TITLE,
-} from '../utils/utils';
+import { IMAGE_NAME } from '../utils/utils';
 
 const frameMetadata = getFrameMetadata({
   buttons: [{ label: 'Buy', action: 'post_redirect' }],
-  image: `${NEXT_PUBLIC_URL}/${IMAGE_NAME}`,
-  post_url: `${NEXT_PUBLIC_URL}/api/frame`,
 });
 
 export const metadata = {
-  title: ITEM_TITLE,
-  description: ITEM_DESCRIPTION,
-  openGraph: {
-    title: ITEM_TITLE,
-    description: ITEM_DESCRIPTION,
-    images: [NEXT_PUBLIC_URL],
-  },
+  title: 'title',
+  description: 'description',
+  // openGraph: {
+  //   title: ITEM_TITLE,
+  //   description: ITEM_DESCRIPTION,
+  //   images: [NEXT_PUBLIC_URL],
+  // },
   other: {
     ...frameMetadata,
   },
