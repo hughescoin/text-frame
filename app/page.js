@@ -1,14 +1,33 @@
 import Image from 'next/image';
-import { IMAGE_NAME } from '../utils/utils';
+import { IMAGE_NAME, NEXT_PUBLIC_URL } from '../utils/utils';
+import { getFrameMetadata } from '@coinbase/onchainkit/frame';
+
+const frameMetadata = getFrameMetadata({
+  buttons: [
+    {
+      label: 'Click',
+    },
+  ],
+  image: {
+    src: `${NEXT_PUBLIC_URL}/${IMAGE_NAME}`,
+    aspectRatio: '1:1',
+  },
+  input: {
+    text: 'Tell me a story',
+  },
+});
 
 export const metadata = {
   title: 'title',
   description: 'description',
-  // openGraph: {
-  //   title: ITEM_TITLE,
-  //   description: ITEM_DESCRIPTION,
-  //   images: [NEXT_PUBLIC_URL],
-  // },
+  openGraph: {
+    title: 'zizzamia.xyz',
+    description: 'LFG',
+    images: [`${NEXT_PUBLIC_URL}/${IMAGE_NAME}`],
+  },
+  other: {
+    ...frameMetadata,
+  },
 };
 
 export default function Page() {

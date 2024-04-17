@@ -1,7 +1,6 @@
 import { ChargeRequestBody } from '../types/types';
 import { FrameRequest, getFrameMessage } from '@coinbase/onchainkit';
 import { NextRequest } from 'next/server';
-export const NEXT_PUBLIC_URL = 'CHANGE ME';
 export const apiKey = process.env.API_KEY;
 export const apiVersion = process.env.API_VERSION;
 export const commerceApiUrl = 'https://api.commerce.coinbase.com/charges';
@@ -10,6 +9,11 @@ export const ITEM_DESCRIPTION = 'YOUR PRODUCT DESCRIPTION';
 export const ITEM_TITLE = 'wassie.jpeg';
 export const REDIRECT_URL = ''; //optional
 export const IMAGE_NAME = 'wassie.jpeg';
+
+export const NEXT_PUBLIC_URL =
+  process.env.NODE_ENV == 'development'
+    ? 'http://localhost:3000'
+    : 'https://text-frame.vercel.app';
 
 export const createRequestHeaders = (): Headers => {
   const headers = new Headers();
