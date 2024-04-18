@@ -37,7 +37,8 @@ export async function getResponse(request) {
         page: state?.page + 1, //problem
         time: new Date().toISOString(),
       },
-    })
+    }),
+    { status: 200 }
   );
 }
 
