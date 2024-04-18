@@ -12,9 +12,9 @@ export async function getResponse(request) {
     neynarApiKey: 'NEYNAR_ONCHAIN_KIT',
   });
 
-  if (!isValid) {
-    return new NextResponse('Message not valid', { status: 500 });
-  }
+  //   if (!isValid) {
+  //     return new NextResponse('Message not valid', { status: 500 });
+  //   }
 
   console.log(message);
   return new NextResponse(
@@ -28,10 +28,6 @@ export async function getResponse(request) {
         //   label: 'OnchainKit',
         //   target: 'https://onchainkit.xyz',
         // },
-        {
-          action: 'post_redirect',
-          label: 'Dog pictures',
-        },
       ],
       image: {
         src: `${NEXT_PUBLIC_URL}/${IMAGE_NAME}`,
