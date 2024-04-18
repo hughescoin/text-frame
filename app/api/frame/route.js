@@ -15,7 +15,7 @@ export async function getResponse(request) {
   //   if (!isValid) {
   //     return new NextResponse('Message not valid', { status: 500 });
   //   }
-  console.log(message);
+  console.log(body);
   return new NextResponse(
     getFrameHtmlResponse({
       buttons: [
@@ -31,6 +31,13 @@ export async function getResponse(request) {
       image: {
         src: `${NEXT_PUBLIC_URL}/${IMAGE_NAME}`,
       },
+      //   state: {
+      //     users: {
+      //       name: message.user,
+      //       project: message.project,
+      //     },
+      //     ...message.users,
+      //   },
     }),
     { status: 200 }
   );
