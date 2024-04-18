@@ -3,10 +3,10 @@ import {
   getFrameMessage,
   getFrameHtmlResponse,
 } from '@coinbase/onchainkit/frame';
-
+import { IMAGE_NAME, NEXT_PUBLIC_URL } from '../../../utils/utils';
 import { NextRequest, NextResponse } from 'next/server';
 
-async function getResponse(request) {
+export async function getResponse(request) {
   const body = await request.json();
   const { isValid, message } = await getFrameMessage(body, {
     neynarApiKey: 'NEYNAR_ONCHAIN_KIT',
@@ -16,35 +16,35 @@ async function getResponse(request) {
     return new NextResponse('Message not valid', { status: 500 });
   }
 
-  console.log(body);
-  //   return new NextResponse(
-  //     getFrameHtmlResponse({
-  //       buttons: [
-  //         {
-  //           label: `State: ${state?.page || 0}`,
-  //         },
-  //         {
-  //           action: 'link',
-  //           label: 'OnchainKit',
-  //           target: 'https://onchainkit.xyz',
-  //         },
-  //         {
-  //           action: 'post_redirect',
-  //           label: 'Dog pictures',
-  //         },
-  //       ],
-  //       image: {
-  //         src: `${NEXT_PUBLIC_URL}/park-1.png`,
-  //       },
-  //       postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
-  //       state: {
-  //         page: state?.page + 1,
-  //         time: new Date().toISOString(),
-  //       },
-  //     })
-  //   );
+  console.log(message);
+  return new NextResponse(
+    getFrameHtmlResponse({
+      buttons: [
+        {
+          label: `thank you`,
+        },
+        // {
+        //   action: 'link',
+        //   label: 'OnchainKit',
+        //   target: 'https://onchainkit.xyz',
+        // },
+        {
+          action: 'post_redirect',
+          label: 'Dog pictures',
+        },
+      ],
+      image: {
+        src: `${NEXT_PUBLIC_URL}/${IMAGE_NAME}`,
+      },
+      postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
+      state: {
+        page: state?.page + 1, //problem
+        time: new Date().toISOString(),
+      },
+    })
+  );
 }
 
-async function POST(request) {
+export async function POST(request) {
   return getResponse(request);
 }
