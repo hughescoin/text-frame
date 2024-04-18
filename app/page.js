@@ -14,7 +14,7 @@ const frameMetadata = getFrameMetadata({
     aspectRatio: '1:1',
   },
   input: {
-    text: 'Share your project https://your-project-url.xyz',
+    text: 'link to project',
   },
   postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
 });
