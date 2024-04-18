@@ -15,7 +15,7 @@ export async function getResponse(request) {
   //   if (!isValid) {
   //     return new NextResponse('Message not valid', { status: 500 });
   //   }
-
+  console.log(message);
   return new NextResponse(
     getFrameHtmlResponse({
       buttons: [
