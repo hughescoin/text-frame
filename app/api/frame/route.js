@@ -16,7 +16,6 @@ export async function getResponse(request) {
   //     return new NextResponse('Message not valid', { status: 500 });
   //   }
 
-  console.log(message);
   return new NextResponse(
     getFrameHtmlResponse({
       buttons: [
@@ -31,11 +30,6 @@ export async function getResponse(request) {
       ],
       image: {
         src: `${NEXT_PUBLIC_URL}/${IMAGE_NAME}`,
-      },
-      postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
-      state: {
-        page: state?.page + 1, //problem
-        time: new Date().toISOString(),
       },
     }),
     { status: 200 }
